@@ -13,6 +13,7 @@
     <script src="js/text_lab_info_2.js"></script>
     <script src="js/text_lab_info_3.js"></script>
     <script src="js/text_lab_info_4.js"></script>
+    <script src="js/text_lab_info_5.js"></script>
     <script src="js/text_lab_info_6.js"></script>
     <script src="js/labs_text_script.js"></script>
     <script src="js/Other_text_script.js"></script>
@@ -38,7 +39,7 @@
                 <a onclick="showLab2()">Лаб. Роб. №2</a>
                 <a onclick="showLab3()">Лаб. Роб. №3</a>
                 <a onclick="showLab4()">Лаб. Роб. №4</a>
-                <a onclick="alert('Will be soon')">Лаб. Роб. №5</a>
+                <a onclick="showLab5()">Лаб. Роб. №5</a>
                 <a onclick="showLab6()">Лаб. Роб. №6</a>
                 <a onclick="alert('Will be soon')">Лаб. Роб. №7</a>
                 <a onclick="alert('Will be soon')">Лаб. Роб. №8</a>
