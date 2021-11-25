@@ -121,6 +121,22 @@ function mishaDB() {
     changeText(text);
 }
 
+function denysDB() {
+    const text = `<h1>Створити БД аудіотеки</h1>
+<div style="text-align: left">
+</div>
+        <h2> Інфологічна модель:</h2>
+        <img src="lab_img/lab7/denys/infolog.png" style="width: 50%; height: 100%">
+        <h2>Даталогічна модель : </h2>
+        <img src="lab_img/lab7/denys/datalog.png">
+        <h2>Реалізація БД в СУБД MySQL</h2>
+        <img src="lab_img/lab7/denys/DDL.png">
+</div>
+`;
+
+    changeText(text);
+}
+
 function itog_7() {
     const text = `<h1>Висновок</h1>
         <p style="text-align:justify;">На лабораторній роботі №7 ми придбали практичні навички підключення до СКБД, вибора бази даних, виконання запиту, отримання результатів, відключення від СКБД</p>`

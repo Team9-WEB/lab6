@@ -122,7 +122,7 @@ function showLab7() {
                     <a onclick="description_2()">Опис</a>
                     <a onclick="meta_7()">Тема Мета</a>
                     <a onclick="mishaDB()">Завдання Мішані</a>
-                    <a onclick="mishaDB()">Завдання Мішані</a>
+                    <a onclick="denysDB()">Завдання Дениса</a>
                     <a onclick="mishaDB()">Завдання Мішані</a>
                     <a onclick="mishaDB()">Завдання Мішані</a>
                     <a onclick="itog_7()">Висновок</a>
