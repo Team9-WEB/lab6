@@ -112,7 +112,9 @@ function mishaDB() {
         </xmp>
         <h2>Результат :</h2>
         <img src="lab_img/lab7/misha/show2.png"><br>
-        <img src="lab_img/lab7/misha/show2.1.png" style="width: 75%; height: 100%">
+        <img src="lab_img/lab7/misha/show2.1.png" style="width: 75%; height: 100%"><br>
+        <h2>Загальний результат :</h2>
+        <img src="lab_img/lab7/misha/result.png" style="width: 75%; height: 100%">
 </div>
 `;
 
