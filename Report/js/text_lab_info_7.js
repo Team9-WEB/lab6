@@ -17,8 +17,10 @@ function mishaDB() {
           </ul>
 </div>
         <h2> Інфологічна модель:</h2>
+        <img src="lab_img/lab7/misha/table.png">
         <img src="lab_img/lab7/misha/infolog.png" style="width: 50%; height: 100%">
         <h2>Даталогічна модель : </h2>
+        <img src="lab_img/lab7/misha/table2.png">
         <img src="lab_img/lab7/misha/datalog.png">
         <h2>Реалізація БД в СУБД MySQL</h2>
         <img src="lab_img/lab7/misha/DDL.png">
