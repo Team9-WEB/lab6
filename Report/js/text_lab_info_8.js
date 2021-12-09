@@ -23,7 +23,7 @@ function DB() {
         <h2> Даталогічна модель : </h2>
         <img src="lab_img/lab8/datalogic.jpg">
         <h2>Реалізація БД в СУБД MySQL</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         create table roles
         (
             Id int auto_increment
@@ -127,11 +127,11 @@ function DB() {
 }
 
 function test() {
-    const text = `<h1>Створити БД аудіотеки</h1>
+    const text = `<h1>Тест</h1>
 <div style="text-align: left">
 </div>
         <h2> Java-код внесення данних в БД:</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         public static void addUser(String email , String name , String lastName,String phone ,String password){
             try {
                 Connection connection = DbConnetion.getConnection();
@@ -148,9 +148,9 @@ function test() {
         }
         </xmp>
         <h2> Демонстрація внесення: </h2>
-        <img src="lab_img/lab8/add.png">
+        <img src="lab_img/lab8/add.jpg">
         <h2> Java-код видалення данних в БД:</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         public static void removeLesson(int id) {
             Connection connection = DbConnetion.getConnection();
             try {
@@ -163,9 +163,10 @@ function test() {
         }
         </xmp>
         <h2> Демонстрація видалення: </h2>
-        <img src="lab_img/lab8/remove.png">
+        <img src="lab_img/lab8/remove1.png"><br/>
+        <img src="lab_img/lab8/remove2.png">
         <h2> Java-код пошук данних в БД:</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         public static UserModel getUserByPhone(String phone){
             try {
                 Connection connection = DbConnetion.getConnection();
@@ -208,10 +209,9 @@ function itog_8() {
         <h2>Виконаний функціонал:</h2>
         <ul>
             <li>Авторизацыя та регістрація користувачів</li>
-            <li>Перегляд цін на абонементи, заняття</li>
-            <li>Купівля абонементів, запис на заняття</li>
-            <li>Перегляд інформації про зали, тренерський склад</li>
-            <li>Корегування цін адміністратором</li>
+            <li>Перегляд занять</li>
+            <li>Видалення Занять</li>
+            <li>Авторизований доступ</li>
             <li>Мультиязичність</li>
         </ul>
     </div>`;
@@ -220,129 +220,39 @@ function itog_8() {
 }
 
 function func() {
-    const text = `<h1>Створити БД для фільмотеки</h1>
-<div style="text-align: left">
-        <h2>В БД бібліотеки необхідно відобразити наступні дані:</h2>
-        <ul>
-          <li>Хто зняв фільм?(Актори)</li>
-          <li>Хто знімався в фільмі?(Режисери)</li>
-          <li>Фільми, жанр, дата релізу</li>
-          </ul>
-</div>
-        <h2> Інфологічна модель:</h2>
-        <img src="lab_img/lab7/vlad/Infologic.png">
-        <h2>Даталогічна модель : </h2>
-        <img src="lab_img/lab7/vlad/datalogic.png">
-        <h2>Зв'зки:</h2>
-        <img src="lab_img/lab7/vlad/Relation.png">
-        <h2>Реалізація БД в СУБД MySQL</h2>
-        <img src="lab_img/lab7/vlad/Scripts.png">
-        
-<div style="text-align: left">
-        <h2>Скрипти для внесення даних до БД через html-форму:</h2>
-        <p style="font-size: 25px; text-align: left">Html:</p>
-        <xmp style="margin: 0">
-        <form action="addFilm" method="POST" enctype="">
-            <label>Title</label>
-            <input type="text" name="title" required="required">
-            <label>Description</label>
-            <input type="text" name="description" aria-multiline="true" required="required">
-            <label>ReleaseDate</label>
-            <input type="date" name="releaseDate" required="required">
-            <label>MainGenre</label>
-            <input type="text" name="mainGenre" required="required">
-            <input type="submit" value="Add new Film">
-        </form>
-        </xmp>
-        <p style="font-size: 25px; text-align: left; margin: 0">Java:</p>
-        <xmp style="margin: 0">
-        public void insert(Film film) throws DAOException {
-            String sql = "insert into Films(Title, Description, ReleaseDate, MainGenre) values (?, ?, ?, ?)";
-            Connection connection = null;
-            PreparedStatement preparedStatement = null;
+    const text = `<h1>Демонстрація іншого функціоналу</h1>
+        <h2> Java-код:</h2>
+        <xmp style="margin: 0; text-align: justify;">
+        public static ArrayList<LessonModel> getAllLessons() {
+            ArrayList<LessonModel> lessonModels = new ArrayList<>();
+            Connection connection = DbConnetion.getConnection();
             try {
-                connection = db.getConnection();
-                preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, film.getName());
-                preparedStatement.setString(2, film.getDescription());
-                preparedStatement.setString(3, film.getReleaseDate().toString());
-                preparedStatement.setString(4, film.getMainGenre());
-                preparedStatement.executeUpdate();
-            }
-            catch (SQLException err){
-                throw new DAOException("Problem in insert(Film) method", err);
-            }
-            finally {
-                try{
-                    if(connection != null){
-                        connection.close();
-                    }
-                    if(preparedStatement != null){
-                        preparedStatement.close();
-                    }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from lessons");
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    lessonModels.add(new LessonModel(
+                            resultSet.getInt("Id"),
+                            resultSet.getInt("HallId"),
+                            resultSet.getInt("TrainerId"),
+                            resultSet.getInt("Quantity"),
+                            resultSet.getString("DateTimeOfLesson"),
+                            resultSet.getString("Duration"),
+                            resultSet.getInt("Price"),
+                            resultSet.getInt("gets")
+                    ));
                 }
+                System.out.println("It's okay");
+                return lessonModels;
+            } catch (SQLException e) {
+                System.out.println("NOOOOOOOOOOOOOOOO");
+                e.printStackTrace();
             }
+            return null;
         }
         </xmp>
-        <h2>Результат :</h2>
-        <img src="lab_img/lab7/vlad/result1.png"><br>
-        <img src="lab_img/lab7/vlad/result2.png">
-        <br>
-        <h2>Скрипти для пошуку даних до БД через html-форму:</h2>
-        <p style="font-size: 25px; text-align: left">Html:</p>
-        <xmp style="margin: 0">
-        <form class="search-form" action="search">
-            <input class="search-text" type="text" name="text" value="{text}" />
-            <input class="search-button" type="submit" value="Search" />
-        </form>
-        </xmp>
-        <p style="font-size: 25px; text-align: left">Java:</p>
-        <xmp style="margin: 0">
-        public Collection<Film> getByName(String name) throws DAOException {
-            String sql = "select * from Films where Title like '%"+name+"%'";
-            ArrayList<Film> films = new ArrayList<>();
-            Connection connection = null;
-            PreparedStatement preparedStatement = null;
-            ResultSet resultSet = null;
-            try{
-                connection = db.getConnection();
-                preparedStatement = connection.prepareStatement(sql);
-                resultSet = preparedStatement.executeQuery();
-                while(resultSet.next()){
-                    String[] date = resultSet.getString("ReleaseDate").split("-");
-                    LocalDate data = LocalDate.of(Integer.parseInt(date[0]), Integer.parseInt(date[1]), Integer.parseInt(date[2]));
-                    films.add(new Film(resultSet.getInt("Id"), resultSet.getString("Title"),
-                            resultSet.getString("Description"), data,
-                            resultSet.getString("MainGenre"), resultSet.getInt("DirectorId")));
-                }
-            }
-            catch (SQLException err){
-                throw new DAOException("Problem in getByName(Film) method", err);
-            }
-            finally {
-                try{
-                    if(connection != null){
-                        connection.close();
-                    }
-                    if(preparedStatement != null){
-                        preparedStatement.close();
-                    }
-                    if(resultSet != null){
-                        resultSet.close();
-                    }
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }
-            }
-            return films;
-        }
-        </xmp>
-        <h2>Результат :</h2>
-        <img src="lab_img/lab7/vlad/result3.png"><br>
-        <img src="lab_img/lab7/vlad/result4.png"><br>
-</div>
+        <h2> Демонстрація : </h2>
+        <img src="lab_img/lab8/train.png">
+        
 `;
 
     changeText(text);
@@ -351,7 +261,7 @@ function func() {
 function auto() {
     const text = `<h1>Авторизація</h1>
         <h2> Java-код авторизації:</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         @WebServlet(name = "LoginController", value = "/LoginController")
         public class LoginController extends HttpServlet {
             @Override
@@ -384,7 +294,7 @@ function auto() {
         }
         </xmp>
         <h2> HTML, JS код: </h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         <%@ page contentType="text/html;charset=UTF-8" language="java" %>
         <html>
         <head>
@@ -438,8 +348,8 @@ function auto() {
         </html>
         </xmp>
         <h2> Демонстрація :</h2>
-        <img src="lab_img/lab8/demoAuto1.png"><br>
-        <img src="lab_img/lab8/demoAuto2.png"><br>
+        <img src="lab_img/lab8/demoAuto1.jpg"><br>
+        <img src="lab_img/lab8/demoAuto2.jpg"><br>
 `;
 
     changeText(text);
@@ -448,7 +358,7 @@ function auto() {
 function language() {
     const text = `<h1>Мультиязичність</h1>
         <h2> JS-код:</h2>
-        <xmp style="margin: 0">
+        <xmp style="margin: 0; text-align: justify;">
         <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
@@ -461,7 +371,6 @@ function language() {
         <img src="lab_img/lab8/demoLang1.jpg"><br>
         <img src="lab_img/lab8/demoLang2.jpg"><br>
         <img src="lab_img/lab8/demoLang3.jpg"><br>
-        <img src="lab_img/lab8/demoLang4.jpg"><br>
 `;
 
     changeText(text);
