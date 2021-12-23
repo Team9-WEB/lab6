@@ -330,6 +330,31 @@ function denys() {
 
     changeText(text);
 }
+function bodya() {
+    const text = `
+    <div align="center">
+    <h1>Завдання:</h1>
+    <img src="lab_img/lab9/bodya/task.png">
+<h2>Результат:</h2>
+<h3 style="text-align: left">Гістограма, що виводиться автоматично, по 5 стовпців кожну секунду:</h3>
+<img src="lab_img/lab9/bodya/result.png">
+
+<div style="text-align: left">
+<h4 style="text-align: left">CSS:</h4>
+<img src="lab_img/lab9/bodya/css.png"><br>
+<h4 style="text-align: left">JS:</h4>
+<img src="lab_img/lab9/bodya/js.png">
+<img src="lab_img/lab9/bodya/js1.png">
+<h4 style="text-align: left">PHP + HTML (відправлення даних про гістограму у БД):</h4>
+<img src="lab_img/lab9/bodya/php.png"><br>
+<img src="lab_img/lab9/bodya/html.png"><br>
+<img src="lab_img/lab9/bodya/DB.png"><br>
+
+</div>
+`;
+
+    changeText(text);
+}
 
 
 function itog_9() {
