@@ -160,6 +160,7 @@ function showLab9() {
                     <a onclick="description_2()">Опис</a>
                     <a onclick="meta_9()">Тема Мета</a>
                     <a onclick="miha()">Завдання Мішані</a>
+                    <a onclick="denys()">Завдання Дениса</a>
                     <a onclick="itog_9()">Висновки</a>
                 </div>
                 <div class="lab" id="context1" style="margin-top:20px">

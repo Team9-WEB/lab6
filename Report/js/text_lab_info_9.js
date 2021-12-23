@@ -306,6 +306,32 @@ if($result = $conn->query("SELECT * FROM images ORDER BY uploaded_on DESC")){
     changeText(text);
 }
 
+function denys() {
+    const text = `
+    <div align="center">
+    <h1>Завдання:</h1>
+    <img src="lab_img/lab9/denys/taskD.png">
+<h2>Результат:</h2>
+<h3 style="text-align: left">Головна сторінка:</h3>
+<img src="lab_img/lab9/denys/result.png">
+<h3 style="text-align: left">Добавлення завдання:</h3>
+<img src="lab_img/lab9/denys/result1.png">
+<div style="text-align: left">
+<h4 style="text-align: left">CSS:</h4>
+<img src="lab_img/lab9/denys/css.png"><br>
+<img src="lab_img/lab9/denys/css1.png">
+<h4 style="text-align: left">PHP + HTML:</h4>
+<img src="lab_img/lab9/denys/php1.png"><br>
+<img src="lab_img/lab9/denys/php2.png"><br>
+<img src="lab_img/lab9/denys/php3.png"><br>
+<img src="lab_img/lab9/denys/php4.png">
+</div>
+`;
+
+    changeText(text);
+}
+
+
 function itog_9() {
     const text = `<h1>Висновок</h1>
         <p style="text-align:justify;">На лабораторній роботі №6 ми придбали практичні навички роботи з AJAX запитами</p>`
